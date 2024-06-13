@@ -1,7 +1,7 @@
 '''Config file with for all database connection'''
 
 import os
-# from pymongo import MongoClient
+
 
 
 
@@ -28,8 +28,6 @@ class postgresconfig(config):
     SQLALCHEMY_DATABASE_URI= 'postgresql://postgres:postgres@localhost:5432/testdata'
 
 
-# configuration for mongodb
-# class mongodbconfig(config):
-    # client = MongoClient('mongodb://localhost:27017')
-    # db = client['test']
-    # collection = db['users']
+
+
+
