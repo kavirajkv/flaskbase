@@ -2,7 +2,7 @@
 from flask import Flask
 from app import config
 from app.dbsetup import db
-from app.config import sqliteconfig
+from app.config import sqliteconfig, postgresconfig
 
 ######################################
 
@@ -10,7 +10,7 @@ app=None
 
 def create_app():
     app=Flask(__name__,template_folder="./app/templates")
-    app.config.from_object(sqliteconfig)
+    app.config.from_object(postgresconfig)
     db.init_app(app)
 
     app.app_context().push()
