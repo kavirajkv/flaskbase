@@ -3,7 +3,7 @@
 
 from flask import render_template,redirect,url_for,current_app as app
 from app.forms import Usersregistration
-from app.model import User
+from app.model import Users
 from app.dbsetup import db
 
 ########################################
@@ -16,13 +16,13 @@ def index():
 def register():
     form=Usersregistration()
     if form.validate_on_submit():
-        user=User(name=form.name.data,
+        user=Users(name=form.name.data,
                   email=form.email.data,
                   password=form.password.data,
                   )
         
         with app.app_context():
-            checkuser=User.query.filter_by(email=form.email.data).first()
+            checkuser=Users.query.filter_by(email=form.email.data).first()
             if checkuser:
                 return redirect(url_for('index'))
             else:
