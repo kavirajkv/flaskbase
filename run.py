@@ -11,6 +11,7 @@ app=None
 def create_app():
     app=Flask(__name__,template_folder="./app/templates")
     app.config.from_object(postgresconfig)
+    # app.config.from_object(sqliteconfig)
     db.init_app(app)
 
     app.app_context().push()
